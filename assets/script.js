@@ -40,7 +40,7 @@ function principale() {
 principale() 
 	
 
-/* AFFICHAGE DE MES DOTS SANS BACKGROUND BLANC SAUF LA PREMIERE*/
+/* AFFICHAGE DE MES BULLETS POINT SANS BACKGROUND BLANC SAUF LA PREMIERE*/
 
 function AffichageDots() {
 	for (
@@ -58,6 +58,8 @@ de départ par défaut la première dot quand on arrive sur la page*/
  }
 	}
 }
+
+/*AFFICHAGE DES SLIDE AU CLICK DROIT (NEXT) ET DE LA DOT CORRESPONDANTE*/
 
 function ClickNextSlide() {
 
@@ -84,14 +86,15 @@ function ClickNextSlide() {
 			pour la prise en compte du 0 de l'index) il repart à 0 et ainsi de suite...
 		)*/
 
-		/*à chaque clic droit je veux changer la source de l'image
-		j'ai ajouté la source relative dans mon Array slides*/
-
 
 		/*ici je rajoute la classe dot_selected 
 		à l'index en cours car l'index aura déjà été incrémenté*/
 
 		DivDots[index].classList.add("dot_selected");
+
+		/*à chaque clic droit je veux changer la source de l'image
+		et le texte de chaque slide / j'ai ajouté la source relative dans mon Array slides*/
+
 		img.src = slides[index].image;
 	    text.innerHTML = slides[index].tagLine;
 
@@ -100,7 +103,7 @@ function ClickNextSlide() {
 
 
 /*JE DUPLIQUE ICI POUR LE CLICK GAUCHE*/
-/*AFFICHAGE DES SLIDE AU CLICK GAUCHE ET DE LA DOT CORRESPONDANTE*/
+/*AFFICHAGE DES SLIDE AU CLICK GAUCHE (PREVIOUS) ET DE LA DOT CORRESPONDANTE*/
 
 function ClickPreviousSlide() {
 
