@@ -23,8 +23,8 @@ const slides = [
 par defaut est à 0 donc la première case du tabeau*/
 let index = 0 
 
-/*ici je récupère des éléments de mon html et je
-les mets dans mes variables*/
+/*ici je récupère des éléments de mon html 
+que je vais dynamiser en JAVA et je les mets dans mes variables*/
 
 const dots = document.querySelector(".dots");
 const next = document.querySelector("#banner .arrow_right");
@@ -40,19 +40,20 @@ function principale() {
 principale() 
 	
 
-
-
-
-/* AFFICHAGE DE MES DOTS VIDES */
+/* AFFICHAGE DE MES DOTS SANS BACKGROUND BLANC SAUF LA PREMIERE*/
 
 function AffichageDots() {
-	for (let i = 0; i < slides.length; i++) {
+	for (
+		let indexSlide = 0; 
+		indexSlide < slides.length; 
+		indexSlide++) {
 		const dot = document.createElement("div");
 		dot.classList.add("dot");
 		dots.appendChild(dot);	
+
 /* je créée ma condition pour colorer en blanc ma dot 
 de départ par défaut la première dot quand on arrive sur la page*/
- if (i == index) {
+ if (indexSlide === index) {
 	dot.classList.add("dot_selected");
  }
 	}
@@ -61,12 +62,11 @@ de départ par défaut la première dot quand on arrive sur la page*/
 function ClickNextSlide() {
 	next.addEventListener("click", () => {
 
-		/*je vais créer un tableau pour mes dots ici
-		je le place avant le index++ pour que cette action
-		s'effectue avant*/
+		/*je récupéres mes dots dans une variable ici
+		je le place avant le index++ */
 
-		const arrayDots = document.querySelectorAll (".dots .dot");
-		arrayDots[index].classList.remove("dot_selected")
+		const DivDots = document.querySelectorAll (".dots .dot");
+		DivDots[index].classList.remove("dot_selected")
 
 		index++; 
         
@@ -75,7 +75,9 @@ function ClickNextSlide() {
 		if (index > slides.length -1 /*on met -1 car index de départ 
 		est a 0 or la taille du tableau est à 4 donc il y a un clic "vide"*/) {
 			index = 0;	
-		} /*illustration de la condition : 
+		}
+		
+		/*illustration de la condition : 
 		--> il y a 4 image donc index possible sont 0 1 2 3
 		--> si on arrive à la 4éme image, le clic suivant 
 		mon index sera dont superieur à slides.length(4)-1 soit 3
@@ -90,7 +92,7 @@ function ClickNextSlide() {
 		/*ici je rajoute la classe dot_selected 
 		à l'index en cours car l'index aura déjà été incrémenté*/
 
-		arrayDots[index].classList.add("dot_selected");
+		DivDots[index].classList.add("dot_selected");
 
 	});
 }
@@ -101,8 +103,8 @@ function ClickNextSlide() {
 
 function ClickPreviousSlide() {
 	previous.addEventListener("click", () => {
-		const arrayDots = document.querySelectorAll (".dots .dot");
-		arrayDots[index].classList.remove("dot_selected")
+		const DivDots = document.querySelectorAll (".dots .dot");
+		DivDots[index].classList.remove("dot_selected")
 
 		index--; /*je repars en arrière*/
         
@@ -112,7 +114,7 @@ function ClickPreviousSlide() {
 
 	img.src = slides[index].image;
 	text.innerHTML = slides[index].tagLine;
-	arrayDots[index].classList.add("dot_selected");
+	DivDots[index].classList.add("dot_selected");
 
 	});
 
