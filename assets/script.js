@@ -80,24 +80,20 @@ function ClickNextSlide() {
 
 		if (index > slides.length -1) {
 			index = 0;	
-		} 
-		
-		/*illustration de la condition : 
-		--> il y a 4 image donc index possible sont 0 1 2 3
-		--> si on arrive à la 4éme image, le clic suivant 
-		mon index sera dont superieur à slides.length(4)-1 soit 3
-		--> donc l'index repart à 0 et ainsi de suite ....
+		} /*quand l'index pour notre tableau dépasse le nombre de slide -1 (
+			pour la prise en compte du 0 de l'index) il repart à 0 et ainsi de suite...
+		)*/
 
 		/*à chaque clic droit je veux changer la source de l'image
 		j'ai ajouté la source relative dans mon Array slides*/
 
-	img.src = slides[index].image;
-	text.innerHTML = slides[index].tagLine;
 
 		/*ici je rajoute la classe dot_selected 
 		à l'index en cours car l'index aura déjà été incrémenté*/
 
 		DivDots[index].classList.add("dot_selected");
+		img.src = slides[index].image;
+	    text.innerHTML = slides[index].tagLine;
 
 	});
 }
