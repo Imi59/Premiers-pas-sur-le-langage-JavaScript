@@ -60,13 +60,15 @@ de départ par défaut la première dot quand on arrive sur la page*/
 }
 
 function ClickNextSlide() {
+
 	next.addEventListener("click", () => {
 
-		/*je récupéres mes dots dans une variable ici
+		/*je récupéres tous mes dots dans une variable ici
 		je le place avant le index++ */
 
 		const DivDots = document.querySelectorAll (".dots .dot");
-		DivDots[index].classList.remove("dot_selected")
+
+		DivDots[index].classList.remove("dot_selected");
 
 		index++; 
         
@@ -102,8 +104,11 @@ function ClickNextSlide() {
 /*AFFICHAGE DES SLIDE AU CLICK GAUCHE ET DE LA DOT CORRESPONDANTE*/
 
 function ClickPreviousSlide() {
+
 	previous.addEventListener("click", () => {
+
 		const DivDots = document.querySelectorAll (".dots .dot");
+
 		DivDots[index].classList.remove("dot_selected")
 
 		index--; /*je repars en arrière*/
@@ -113,7 +118,9 @@ function ClickPreviousSlide() {
 		}
 
 	img.src = slides[index].image;
+
 	text.innerHTML = slides[index].tagLine;
+
 	DivDots[index].classList.add("dot_selected");
 
 	});
