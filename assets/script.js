@@ -19,26 +19,26 @@ const slides = [
 
 /*LES VARIABLES DU PROJET*/
 
+/* ici c'est mon compteur qui 
+par defaut est à 0 donc la première case du tabeau*/
+let index = 0 
+
+/*ici je récupère des éléments de mon html et je
+les mets dans mes variables*/
+
 const dots = document.querySelector(".dots");
-
-let index = 0 /* ici c'est mon compteur qui par defaut est à 0 donc la première case du tabeau*/
-
 const next = document.querySelector("#banner .arrow_right");
-
 const previous = document.querySelector("#banner .arrow_left");
-
 const img = document.querySelector(".banner-img");
-
 const text = document.querySelector("#banner p");
 
-
-/*JE CREER UNE FONCTION PRINCIPAL POUR REGROUPER TOUTES MES FONCTIONS*/
-function main() {
+function principale() {
 	AffichageDots();
 	ClickNextSlide();
 	ClickPreviousSlide();
 }
-main()
+principale() 
+	
 
 
 
