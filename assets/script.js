@@ -44,16 +44,16 @@ principale()
 
 function AffichageDots() {
 	for (
-		let indexSlide = 0; 
-		indexSlide < slides.length; 
-		indexSlide++) {
+		let indexSlides = 0; 
+		indexSlides < slides.length; 
+		indexSlides++) {
 		const dot = document.createElement("div");
 		dot.classList.add("dot");
 		dots.appendChild(dot);	
 
 /* je créée ma condition pour colorer en blanc ma dot 
 de départ par défaut la première dot quand on arrive sur la page*/
- if (indexSlide === index) {
+ if (indexSlides === index) {
 	dot.classList.add("dot_selected");
  }
 	}
