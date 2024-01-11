@@ -63,21 +63,24 @@ function ClickNextSlide() {
 
 	next.addEventListener("click", () => {
 
-		/*je récupéres tous mes dots dans une variable ici
-		je le place avant le index++ */
+		/*je récupéres toutes mes dots dans une variable ici*/
 
 		const DivDots = document.querySelectorAll (".dots .dot");
 
-		DivDots[index].classList.remove("dot_selected");
+		DivDots[index].classList.remove("dot_selected"); 
+		/*j'enléve le background de la dot 
+		avant l'incrémentation de mon index de référence*/
 
 		index++; 
         
-		/* Mon index s'arrête à 3 je veux 
-		qu'à 3 il reparte à 0 (la première image)*/
-		if (index > slides.length -1 /*on met -1 car index de départ 
-		est a 0 or la taille du tableau est à 4 donc il y a un clic "vide"*/) {
+		/* 
+		*** INDEX VALEURS POSSIBLES 0 1 2 3
+		*** SLIDES LENGTH 1 2 3 4
+		Si on ne met pas le -1 il y a un click "vide" à la fin*/
+
+		if (index > slides.length -1) {
 			index = 0;	
-		}
+		} 
 		
 		/*illustration de la condition : 
 		--> il y a 4 image donc index possible sont 0 1 2 3
