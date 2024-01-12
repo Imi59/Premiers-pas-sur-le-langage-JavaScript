@@ -17,11 +17,11 @@ const slides = [
 	}
 ]
 
-/*LES VARIABLES DU PROJET*/
+/*LES VARIABLES DU PROJET RECUPERE AU FUR ET A MESURE*/
 
 /* ici c'est mon compteur qui 
 par defaut est à 0 donc la première case du tabeau*/
-let index = 0 
+let index = 0
 
 /*ici je récupère des éléments de mon html 
 que je vais dynamiser en JAVA et je les mets dans mes variables*/
@@ -67,7 +67,7 @@ function ClickNextSlide() {
 
 		/*je récupéres toutes mes dots dans une variable ici*/
 
-		const DivDots = document.querySelectorAll (".dots .dot");
+		const DivDots = document.getElementsByClassName ("dot");
 
 		DivDots[index].classList.remove("dot_selected"); 
 		/*j'enléve le background de la dot 
@@ -109,7 +109,7 @@ function ClickPreviousSlide() {
 
 	previous.addEventListener("click", () => {
 
-		const DivDots = document.querySelectorAll (".dots .dot");
+		const DivDots = document.getElementsByClassName ("dot");
 
 		DivDots[index].classList.remove("dot_selected")
 
