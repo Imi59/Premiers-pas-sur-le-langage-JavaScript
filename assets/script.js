@@ -17,89 +17,49 @@ const slides = [
 	}
 ]
 
-/*LES VARIABLES DU PROJET RECUPEREES AU FUR ET A MESURE*/
-
-/* ici c'est mon compteur qui 
-par defaut est à 0 donc la première case du tabeau*/
-let index = 0
-
-/*ici je récupère des éléments de mon html 
-que je vais dynamiser en JAVA et je les mets dans mes variables*/
-
+let index = 0;
 const dots = document.querySelector(".dots");
 const next = document.querySelector("#banner .arrow_right");
 const previous = document.querySelector("#banner .arrow_left");
 const img = document.querySelector(".banner-img");
 const text = document.querySelector("#banner p");
 
-function principale() {
-	AffichageDots();
-	ClickNextSlide();
-	ClickPreviousSlide();
-}
-principale() 
-	
-
 /* AFFICHAGE DE MES BULLETS POINT SANS BACKGROUND BLANC SAUF LA PREMIERE*/
 
 function AffichageDots() {
-	for (
-		let indexSlides = 0; 
-		indexSlides < slides.length; 
-		indexSlides++) {
+	for (let i = 0; i < slides.length; i++) 
+ {
 		const dot = document.createElement("div");
 		dot.classList.add("dot");
 		dots.appendChild(dot);	
 
-/* je créée ma condition pour colorer en blanc ma dot 
-de départ par défaut la première dot quand on arrive sur la page*/
- if (indexSlides === index) {
+ if (i === index) {
 	dot.classList.add("dot_selected");
  }
 	}
 }
-
-/*AFFICHAGE DES SLIDE AU CLICK DROIT (NEXT) ET DE LA DOT CORRESPONDANTE*/
+AffichageDots();
 
 function ClickNextSlide() {
 
 	next.addEventListener("click", () => {
 
-		/*je récupéres toutes mes dots dans une variable ici*/
-
+/*ETAPE 1 : au clic -->  incrémentation + boucle infinie + dote qui évolue*/
 		const DivDots = document.getElementsByClassName ("dot");
-
 		DivDots[index].classList.remove("dot_selected"); 
-		/*j'enléve le background de la dot 
-		avant l'incrémentation de mon index de référence*/
-
-		index++; 
-        
-		/* 
-		*** INDEX VALEURS POSSIBLES 0 1 2 3
-		*** SLIDES LENGTH 1 2 3 4
-		Si on ne met pas le -1 il y a un click "vide" à la fin*/
-
+		index++;
 		if (index > slides.length -1) {
 			index = 0;	
-		} /*quand l'index pour notre tableau dépasse le nombre de slide -1 (
-			pour la prise en compte du 0 de l'index) il repart à 0 et ainsi de suite...
-		)*/
+		} 
+		 DivDots[index].classList.add("dot_selected");
 
-
-		/*ici je rajoute la classe dot_selected 
-		à l'index en cours car l'index aura déjà été incrémenté*/
-
-		DivDots[index].classList.add("dot_selected");
-
-		/*à chaque clic droit je veux changer la source de l'image
-		et le texte de chaque slide / j'ai ajouté la source relative dans mon Array slides*/
-
+/*ETAPE 2 : CHANGEMENT D IMAGE EN MEME TEMPS ET DE TEXTE */
 		img.src = slides[index].image;
-	    text.innerHTML = slides[index].tagLine;
-
+		text.innerHTML = slides[index].tagLine;
+	
 	});
 }
+ClickNextSlide();
 
 
 /*JE DUPLIQUE ICI POUR LE CLICK GAUCHE*/
@@ -128,3 +88,4 @@ function ClickPreviousSlide() {
 	});
 
 }
+ClickPreviousSlide();
