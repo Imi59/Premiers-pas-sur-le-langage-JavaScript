@@ -17,7 +17,7 @@ const slides = [
 	}
 ]
 
-/*LES VARIABLES DU PROJET RECUPERE AU FUR ET A MESURE*/
+/*LES VARIABLES DU PROJET RECUPEREES AU FUR ET A MESURE*/
 
 /* ici c'est mon compteur qui 
 par defaut est à 0 donc la première case du tabeau*/
