@@ -52,7 +52,6 @@ function ClickNextSlide() {
 			index = 0;	
 		} 
 		 DivDots[index].classList.add("dot_selected");
-
 /*ETAPE 2 : CHANGEMENT D IMAGE EN MEME TEMPS ET DE TEXTE */
 		img.src = slides[index].image;
 		text.innerHTML = slides[index].tagLine;
@@ -68,24 +67,15 @@ ClickNextSlide();
 function ClickPreviousSlide() {
 
 	previous.addEventListener("click", () => {
-
 		const DivDots = document.getElementsByClassName ("dot");
-
 		DivDots[index].classList.remove("dot_selected")
-
 		index--; /*je repars en arrière*/
-        
 		if (index < 0) {
 			index = slides.length -1;	
 		}
-
 	img.src = slides[index].image;
-
 	text.innerHTML = slides[index].tagLine;
-
 	DivDots[index].classList.add("dot_selected");
-
 	});
-
 }
 ClickPreviousSlide();
